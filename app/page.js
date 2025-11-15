@@ -1,65 +1,207 @@
-import Image from "next/image";
 
-export default function Home() {
+"use client";
+
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import About from "@/components/About";
+import ServicesBox from "@/components/ServicesBox";
+import ServiceContainer from "@/components/ServiceContainer";
+import Experience from "@/components/Experience";
+import Products from "@/components/Products";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import { useRouter } from "next/navigation";
+
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay, duration: 0.7, ease: "easeOut" },
+  }),
+};
+
+const Home = () => {
+  const slides = ["/banners/1.png", "/banners/2.png", "/banners/3.png", "/banners/4.png", "/banners/5.png", "/banners/6.png", "/banners/7.png", "/banners/8.png", "/banners/9.png"];
+  const router = useRouter()
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <motion.div
+      className="h-screen bg-white pt-10 overflow-x-hidden"
+      initial="hidden"
+      animate="visible"
+    >
+      {/* ✅ Main Banner Section */}
+      <div className="relative h-100 md:h-[500px] w-full overflow-hidden">
+        {/* Swiper (Background Image Layer) */}
+        <Swiper
+          modules={[EffectFade, Autoplay]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          loop={true}
+          speed={1000}
+          className="absolute inset-0 w-full h-full z-0"
+        >
+          {slides.map((img, index) => (
+            <SwiperSlide key={index}>
+              <img
+                src={img}
+                alt={`slide-${index}`}
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* ✅ Blue Overlay (Blur Layer) */}
+        <motion.div
+          className="absolute inset-0 backdrop-blur-3xl bg-blue-950/20 z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.8 }}
+          transition={{ duration: 1.2 }}
+        ></motion.div>
+
+        {/* ✅ Banner Text Content */}
+        <motion.div
+          className="absolute inset-0 z-20 flex justify-center items-center flex-col px-4 gap-2 text-center"
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h3
+            variants={fadeInUp}
+            custom={0.2}
+            className="md:text-1xl border border-white text-white py-1 px-4 rounded-full backdrop-blur-2xl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Powering safe railway operation
+          </motion.h3>
+
+          <motion.h1
+            variants={fadeInUp}
+            custom={0.4}
+            className="text-white text-3xl md:text-6xl font-bold"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Railway Signal & Telecommunication
+          </motion.h1>
+
+          <motion.p
+            variants={fadeInUp}
+            custom={0.6}
+            className="text-white md:text-xl max-w-3xl"
+          >
+            Advanced signaling and telecommunication solutions ensuring safety,
+            efficiency, and innovation for Indian Railways
+          </motion.p>
+
+          <motion.div
+            variants={fadeInUp}
+            custom={0.8}
+            className="flex gap-3 md:gap-10 w-full justify-center md:mt-10 flex-wrap"
+          >
+            <motion.button onClick={()=> router.push('/services') }
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "#d97706",
+                boxShadow: "0px 0px 10px rgba(217, 119, 6, 0.4)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="text-white border-2 py-2 px-6 rounded-full md:text-xl w-100 bg-amber-600 border-amber-500"
+            >
+              Explore services
+            </motion.button>
+
+            <motion.button onClick={()=> router.push('/products') }
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(255,255,255,0.1)",
+                boxShadow: "0px 0px 10px rgba(255,255,255,0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="text-white border-2 border-amber-500 py-2 px-6 rounded-full text-xl w-100 backdrop-blur-2xl"
+            >
+              View supplies
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* ✅ Sections with Fade-in on Scroll */}
+      <motion.div
+        className="flex flex-wrap lg:flex-nowrap justify-evenly mt-4"
+        variants={fadeInUp}
+        custom={1.2}
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <About />
+        <ServicesBox />
+        <ServiceContainer />
+      </motion.div>
+
+      <motion.div
+        variants={fadeInUp}
+        custom={1.5}
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Experience />
+      </motion.div>
+
+      <motion.div
+        variants={fadeInUp}
+        custom={1.8}
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Products />
+      </motion.div>
+
+      {/* View All Products Button */}
+      <motion.div
+        className="flex justify-center w-full my-5"
+        variants={fadeInUp}
+        custom={2.0}
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.button onClick={()=> router.push('/products') }
+          whileHover={{
+            scale: 1.05,
+            backgroundColor: "#e0f2fe",
+            boxShadow: "0px 0px 10px rgba(59,130,246,0.3)",
+          }}
+          whileTap={{ scale: 0.95 }}
+          className="text-center text-blue-500 font-medium bg-blue-100 py-1 px-6 rounded-full border-blue-200 border outline outline-blue-100"
+        >
+          View All Products
+        </motion.button>
+      </motion.div>
+
+      <motion.div
+        variants={fadeInUp}
+        custom={2.2}
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <ContactSection />
+      </motion.div>
+
+      <motion.div
+        variants={fadeInUp}
+        custom={2.5}
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Footer />
+      </motion.div>
+    </motion.div>
   );
-}
+};
+
+export default Home;

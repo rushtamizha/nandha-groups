@@ -1,0 +1,30 @@
+[
+  {
+    "id":1,
+    "itemName": "Brass screw set",
+    "productImage": ["/products/brass/1.jpg","/products/brass/2.jpg","/products/brass/3.jpg","/products/brass/4.jpg"],
+    "description":"3/16 x 1 brass machine screw with nut and washer ",
+    "stock": true
+  },
+  {
+    "id":2,
+    "itemName": "Cable Jack",
+    "productImage": ["/products/wireholder/5.jpg","/products/wireholder/6.jpg","/products/wireholder/7.jpg"],
+    "description":" ",
+    "stock": true
+  },
+  {
+    "id":3,
+    "itemName": "Foundation bolt nut with double washer",
+    "productImage": ["/products/pipe/8.jpg","/products/pipe/9.jpg","/products/pipe/10.jpg"],
+    "description":" ",
+    "stock": true
+  },
+  {
+    "id":4,
+    "itemName": "Full box shuttering",
+    "productImage": ["/products/box/11.jpg","/products/box/12.jpg","/products/box/13.jpg"],
+    "description":" ",
+    "stock": true
+  }
+]
