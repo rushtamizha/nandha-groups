@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import ContactBtn from "@/components/contactBtn";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Nandha Groups Railway S&T Contactor",
-  description: "Leading provider of advanced signaling and telecommunication solutions for Indian Railways. Committed to safety, innovation, and operational excellence.",
+  description: "Leading provider of advanced signaling and telecommunication solutions for Indian Railways. Committed to safety, innovation and operational excellence"
 };
 
 export default function RootLayout({ children }) {
@@ -26,7 +26,9 @@ export default function RootLayout({ children }) {
       >
         <Navbar/>
         {children}
+        <ContactBtn /> {/* floating contact button */}
       </body>
     </html>
   );
 }
+
