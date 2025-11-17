@@ -10,7 +10,7 @@ const Contact = () => {
     message: "",
   });
 
-  const businessNumber = "9163839 99565"; 
+  const businessNumber = "917010557050"; 
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -109,7 +109,7 @@ const Contact = () => {
             <Phone className="w-6 h-6 text-gray-700" />
             <div>
               <h3 className="font-medium text-gray-700">Call Us</h3>
-              <p className="text-gray-500 text-sm">+91 63839 99565</p>
+              <p className="text-gray-500 text-sm">+917010557050</p>
             </div>
           </div>
 
