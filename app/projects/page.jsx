@@ -14,6 +14,7 @@ const ongoingProjects = [
     image:"/projects/1.jpg",
     division: "Madurai Division",
     start: "Sep 19, 2024",
+    siteImage : ["/projects/1.jpg", "/projects/2.jpg", "/projects/3.jpg", "/projects/4.jpg"],
     tasks: ["Electronic Interlocking (MSDAC)", "Signal installation", "Cable routing & testing"],
   },
   {
@@ -21,6 +22,7 @@ const ongoingProjects = [
     division: "Chennai Division",
     image:"/projects/1.jpg",
     start: "Apr 18, 2025",
+    siteImage:["/projects/5.jpg", "/projects/6.jpg", "/projects/7.jpg", "/projects/8.jpg", "/projects/9.jpg"],
     tasks: ["Electronic Interlocking modifications", "Point machines", "Route proving & commissioning"],
   },
 ];
@@ -101,8 +103,6 @@ const logos = [
 
 export default function ProjectsPage() {
 
-  const slides = ["/projects/1.jpg", "/projects/2.jpg", "/projects/3.jpg", "/projects/4.jpg", "/projects/5.jpg", "/projects/6.jpg", "/projects/7.jpg", "/projects/8.jpg", "/projects/9.jpg"];
-
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <div className="max-w-6xl mx-auto px-6 py-20">
@@ -131,7 +131,7 @@ export default function ProjectsPage() {
           speed={1000}
           className="  inset-0 w-full h-full z-0"
         >
-          {slides.map((img, index) => (
+          {p.siteImage.map((img, index) => (
             < SwiperSlide className="relative " key={index}>
               <img
                 src={img}
@@ -233,3 +233,4 @@ export default function ProjectsPage() {
     </div>
   );
 }
+
