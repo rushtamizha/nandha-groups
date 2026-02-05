@@ -131,7 +131,7 @@ const Footer = () => {
           >
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-sm">
-                © 2025 Nandha Groups . All rights reserved.
+                © 2026 Nandha Groups . All rights reserved.
               </div>
               <div className="flex items-center space-x-6 text-sm text-gray-400">
                 <Link
