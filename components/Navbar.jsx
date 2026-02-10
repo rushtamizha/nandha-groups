@@ -73,7 +73,7 @@ const Navbar = () => {
               onClick={() => router.push(item.href)}
               className={`cursor-pointer border-b-2 pb-1 ${
                 pathname === item.href
-                  ? "border-b-blue-700 text-blue-700"
+                  ? "border-b-blue-700 text-[#1d4ed8]"
                   : "border-white"
               }`}
               whileHover={{ scale: 1.1, color: "#1d4ed8" }}
