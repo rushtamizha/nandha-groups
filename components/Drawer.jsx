@@ -11,6 +11,8 @@ const Drawer = ({drawer,setDrawer}) => {
     { name: "Blogs", href: "/blog" },
     { name: "Projects", href: "/projects" },
     { name: "Our Technicians", href: "/our-team" },
+    { name: "Employees", href: "/employee" },
+
   ];
   return (
    drawer && <div  className='fixed w-screen  h-screen top-0 right-0 z-100'>
