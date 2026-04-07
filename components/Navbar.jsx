@@ -20,6 +20,7 @@ const Navbar = () => {
     { name: "Blogs", href: "/blog" },
     { name: "Projects", href: "/projects" },
     { name: "Our Technicians", href: "/our-team" },
+    { name: "Employees", href: "/employee" },
   ];
 
   return (
@@ -62,7 +63,7 @@ const Navbar = () => {
 
         {/* Menu Links */}
         <motion.div
-          className="md:flex text-gray-700 items-center justify-evenly gap-6 w-1/3 hidden"
+          className="lg:flex text-gray-700 items-center justify-evenly gap-6 w-1/3 hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}

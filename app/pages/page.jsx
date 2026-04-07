@@ -15,7 +15,6 @@ const Blogs = () => {
         <Newspaper className="text-blue-600 w-7 h-7" />
         <h1 className="text-2xl font-bold text-gray-800">Railway S&T Blog</h1>
       </motion.div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogs.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />
